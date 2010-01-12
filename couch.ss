@@ -16,7 +16,7 @@
 (define current-server-url
   (make-parameter (string->url "http://127.0.0.1:5984/")))
 
-(define-syntax-rule (with-current-server new-server body ...)
+(define-syntax-rule (with-current-server new-server (body ...))
   (parameterize ((current-server-url (string->url new-server)))
     body ...))
 
